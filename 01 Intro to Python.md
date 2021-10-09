@@ -18,7 +18,7 @@ The ```import``` keyword used when functions not in the default Python library a
 
 #### __Built-in Modules__
 Examples: 
-```python=
+```python
 import random 
 import datetime
 import dateutil
@@ -30,7 +30,7 @@ import ZipFile
 
 Python has 3 numeric types: 
 
-```python=
+```python
 a = 2 # int
 b = 3.459 # float
 c =  1+2j # complex
@@ -40,7 +40,7 @@ Integers are whole numbers while floating point numbers have decimal points.
 
 ### Working w/ Numeric Data Types
 
-```python=
+```python
 import math
 
 x = 349.4378
@@ -57,7 +57,7 @@ print(math.sqrt(x)) # square root of x  output: 18.693255468216336
 Python has a built-in string class with many handy features. \
 String literals can be enclosed by either double or single quotes.
 
-```python=
+```python
 s1 = 'hi how are you'
 s2 = "I am fine, thank you"
 ```
