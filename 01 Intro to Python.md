@@ -67,7 +67,7 @@ Indexing starts with zero in Python strings.
 
 ![](https://i.imgur.com/YBH9bXj.png)
 
-```python=
+```python
 s = 'hi how are you'
 
 print(s[0]) # h
@@ -77,20 +77,20 @@ print(s[3:6]) # how
 
 Length of a string can be retrieved with ```len()```
 
-```python=
+```python
 print(len(s)) #14
 ```
 
 Repetition and Concatenation
 
-```python=
+```python
 print(s + 'today') # hi how are you today
 print(s * 2) # hi how are youhi how are you
 ```
 
 String concatenation does not work with numeric data types.
 
-```python=
+```python
 pi = 3.14
 
 text = 'The value of pi is ' + pi      ## This does NOT work
@@ -101,7 +101,7 @@ print(text)
 
 Since ```str()``` are classes in Python, they have their own methods.
 
-```python=
+```python
 s = 'hi how are you'
 
 print(s.upper()) # HI HOW ARE YOU
@@ -115,7 +115,7 @@ print(words[2]) # returns `are` at index 2
 
 ## Operators
 
-```python=
+```python
 num1 = 10
 num2 = 5
 num3 = 3
@@ -137,7 +137,7 @@ num3 = 3
 
 Python allows you to assign single or multiple variables at one go using the ```=``` operator
 
-```python=
+```python
 a, b, c, d, e, x = 1, 10, 3, 100, 23, 5 
 
 a += x # a = a + x
@@ -151,7 +151,7 @@ e %= x # e = e % x
 
 Comparison operations return boolean values.
 
-```python=
+```python
 num1 = 10
 num2 = 20
 
@@ -171,7 +171,7 @@ print(num1 != num2) # True
 
 ### Logical Operators
 
-```python=
+```python
 num1 = 10
 num2 = 20
 name1 = 'Dora'
@@ -192,7 +192,7 @@ print(num1 != num2) # True
 
 Membership operators validate membership in a sequence, such as strings, lists, or tuples.
 
-```python=
+```python
 a = 5
 b = 10
 
@@ -207,7 +207,7 @@ print(b not in list) # True
 
 Identity operators compare the memory locations of two objects. 
 
-```python=
+```python
 a = 20
 b = 20
 c = a
@@ -225,7 +225,7 @@ print(a is d) # False
 if-else statements allow for conditional programming. \
 When a condition is truthy, only that code block will be executed.
 
-```python=
+```python
 a = 2
 if (1 + 2 == a):
     # do something
@@ -237,7 +237,7 @@ else:
 
 ### Nested if-else
 
-```python=
+```python
 number = input("Enter your choice (1-2): ")
 staff = input("Are you a staff (Y/N)? ")
 
@@ -267,14 +267,14 @@ Loops are structures that enable repetition of code which is also called iteerat
 
 Syntax:
 
-```python=
+```python
 for stepper_variable in sequence_variable:
    # code
 ```
 
 Example:
 
-```python=
+```python
 for i in range(5):
     print(i)
  
@@ -286,7 +286,7 @@ for i in range(5):
 #         4
 ```
 
-```python=
+```python
 my_list = ['a', 'b', 'c']
 
 for i in my_list:
@@ -306,7 +306,7 @@ An else block after for/while is executed when the loop is NOT terminated by a b
 
 Syntax:
 
-```python=
+```python
 for item in container:
     if search_something(item):
         # Found it!
@@ -322,7 +322,7 @@ else:
 A while loop repeatedly executes as long as a given condition is true.
 
 Syntax:
-```python=
+```python
 count = 1
 
 while count <= 10:
