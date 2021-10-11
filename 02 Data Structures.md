@@ -41,6 +41,7 @@ list2 = ['chonk', 10, 0.9]
 
 ```python
 words = ['hi', 'how', 'are', 'you']
+
 print(len(words)) # returns 4
 print(words[0]) # returns ‘hi’
 print(words[-2:]) # returnss 'are', 'you'
@@ -52,6 +53,7 @@ print(words[-2:]) # returnss 'are', 'you'
 
 ```python
 words = ['hi', 'how', 'are', 'you']
+
 for item in words:
     print(item, end='\t') # returns hi    how    are    you
 ```
