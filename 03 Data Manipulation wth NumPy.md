@@ -196,7 +196,7 @@ print(a) # prints [[ 1  2  3  4  5]
 | np.unicode | U8 (length is 8) | Fixed-length Unicode string type |
 
 
-```python=
+```python
 import numpy as np
 import math
 
