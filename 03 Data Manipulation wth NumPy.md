@@ -350,6 +350,7 @@ import numpy as np
 
 a = np.arange(6).reshape(2,3)
 print(a)
+
 # using np.where
 even = np.where(a % 2 == 0)
 print('rows  where boolean is met: \t', even[0])
