@@ -261,3 +261,152 @@ print(a.size) # prints 6
 print(b.size) # prints 6
 print(c.size) # prints 16
 ```
+
+## Subsetting & Indexing
+
+### One-dimensional Slicing & Indexing
+
+```python    
+import numpy as np
+
+a = np.arange(9) # a = [0,1,2,3,4,5,6,7,8]
+b = np.array # creates empty array
+
+# Select the element at index 2
+print(a[2]) # prints 2
+
+# You can slice NumPy arrays like you do with Python Lists
+# Select elements from index 0 to 7 with step 2
+print(a[:7:2]) # prints 0 2 4 6
+
+# Select and reverse elements from index 0 to the end
+print(a[::-1]) # prints 8 7 6 5 4 3 2 1
+```
+
+### Multi-dimensional Slicing & Indexing
+
+```python    
+import numpy as np
+
+# Create an array with 0 to 23 and reshape it into a 2x3x4 array
+# Think of it as an Excel workbook with 2 worksheets
+# Each worksheet has 3 rows,4 columns
+b = np.arange(24).reshape(2,3,4)
+
+print(b) # prints [[[0 1 2 3]
+         #          [4 5 6 7]
+         #          [8 8 10 11]]
+         #
+         #         [[12 13 14 15]
+         #          [16 17 18 19]
+         #          [20 21 22 23]]
+         
+# Select first worksheet, second row, all columns
+print(b[0,1])    # [4 5 6 7]
+
+# Select first worksheet, all rows, second column
+print(b[0,:,1])   # [1 5 9]
+
+# Select first worksheet, 2nd row, alternate column
+print(b[0,1,::2])  # [4 6]
+
+# Select first worksheet, all rows, last col, but in reverse
+print(b[0,::-1, -1])  # 11 7 3
+
+# Select 1st worksheet, last col, every 2 rows
+print(b[0,::2,-1])  # 3 11
+
+# Select all worksheets but reverse, all rows, all col, 
+print(b[::-1])  
+```
+
+### Boolean Indexing
+
+Boolean indexing lets you indicate if an element should be included
+In the example below, we want to create an array with only the even numbers
+
+```python
+import numpy as np
+
+a = np.arange(6).reshape(2,3)
+print(a) # prints [[0 1 2]
+         #         [3 4 5]]
+
+# create filter array
+b = a % 2 == 0
+print(b) # prints [[True False True]
+         #         [False True False]]
+
+c = a[b] # same as c = a[a % 2 == 0]
+print(c) # prints [0 2 4]
+```
+
+### np.where()
+
+np.where can be used to retrieve the index where the Boolean expression is fulfilled 
+
+```python    
+import numpy as np
+
+a = np.arange(6).reshape(2,3)
+print(a)
+# using np.where
+even = np.where(a % 2 == 0)
+print('rows  where boolean is met: \t', even[0])
+print('columns where boolean is met: \t', even[1])
+
+print(a[even]) # same as a[np.where(a%2==0)]
+```
+
+See [How to work with numpy.where()](https://kanoki.org/2020/01/03/how-to-work-with-numpy-where/)
+
+### Subsetting & Slicing Arrays
+
+```python    
+a = np.arange(1,10)
+arr = a.reshape(3,3)
+
+print(arr) # prints [[1 2 3]
+           #         [4 5 6]
+           #         [7 8 9]]
+           
+# rows 0-1, col 1-2
+print(arr[:2,1:]) # prints [[2 3]
+                  #         [5 6]]
+                  
+print(arr[2], arr[2,:], arr[2:,:]) # prints [7 8 9] [7 8 9] [7 8 9]
+```
+
+## Copying & Sorting
+
+### np.copy()
+
+Syntax:
+
+```python    
+import numpy as np
+
+# Create 2 arrays with different data types, shapes and sizes
+a = np.array([5, 4, 3, 2, 1])
+b = np.copy(a)
+
+
+
+print(a) # prints [5, 4, 3, 2, 1]
+print(b) # prints [5, 4, 3, 2, 1]
+```
+
+### np.sort()
+
+Syntax:
+
+```python    
+colors = np.array([("Red","Blue","Yellow"),
+		           ("Green","Cyan","Magenta")])   
+colors = np.sort(axis=1) # sort along rows
+
+print(colors) # ptints [['Blue' 'Red' 'Yellow']
+              #         ['Cyan' 'Green' 'Magenta']]
+```
+
+See [A quick guide to np.sort()](https://www.sharpsightlabs.com/blog/numpy-sort/)
