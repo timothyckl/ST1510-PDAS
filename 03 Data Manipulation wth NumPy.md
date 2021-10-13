@@ -767,9 +767,7 @@ print(median) # prints 3.5
 
 ```min()``` and  ```max()``` returns the min/max of an array, or along an axis.
 
-> __Parameters__:&nbsp;```ndarray.min(axis=None, out=None, keepdims=False)```
-\
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```ndarray.max(axis=None, out=None, keepdims=False)```
+> __Parameters__:&nbsp;```ndarray.min(axis=None, out=None, keepdims=False)```, ```ndarray.max(axis=None, out=None, keepdims=False)```
 
 ```python
 import numpy as np
@@ -789,9 +787,7 @@ print(b.max(axis = 1)) # prints [2 5 8 11 14 17 20 23]
 
 ```argmin()``` and ```argmax()``` return arrays containing the indices of the smallest/largest elements.
 
-> __Parameters__:&nbsp;```numpy.argmin(a, axis=None, out=None)```
-\
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```numpy.argmax(a,axis=None, out=None)```
+> __Parameters__:&nbsp;```numpy.argmin(a, axis=None, out=None)```, ```numpy.argmax(a,axis=None, out=None)```
 
 ```python    
 b = np.arange(24).reshape(8,3)
