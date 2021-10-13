@@ -769,7 +769,7 @@ print(median) # prints 3.5
 
 > __Parameters__:&nbsp;```ndarray.min(axis=None, out=None, keepdims=False)```
 \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` ndarray.max(axis=None, out=None, keepdims=False)```
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```ndarray.max(axis=None, out=None, keepdims=False)```
 
 ```python
 import numpy as np
@@ -791,7 +791,7 @@ print(b.max(axis = 1)) # prints [2 5 8 11 14 17 20 23]
 
 > __Parameters__:&nbsp;```numpy.argmin(a, axis=None, out=None)```
 \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` numpy.argmax(a,axis=None, out=None)```
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```numpy.argmax(a,axis=None, out=None)```
 
 ```python    
 b = np.arange(24).reshape(8,3)
