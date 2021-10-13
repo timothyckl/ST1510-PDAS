@@ -109,7 +109,7 @@ d = np.linspace(0,2,9)
 print(d) # prints [0. 0.25 0.5 0.75 1. 1.25 1.5 1.75 2.]
 ```
 
-### linspace()
+### full(), eye()
 
 Syntax:
 
@@ -129,7 +129,7 @@ print(f) # prints [[1. 0.]
          #         [0. 1.]]
 ```
 
-### random() and randint()
+### random(), randint()
 
 Syntax:
 
