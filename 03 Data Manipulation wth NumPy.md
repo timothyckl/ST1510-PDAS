@@ -679,3 +679,187 @@ a = np.array([1, 2])
 print(a.astype(int)) # prints [1 2]
 print(a.astype(float)) # prints [1. 2.]
 ```
+
+## Array Mathematics
+
+### Arithmetic Operators
+
+The standard arithmetic operators such as: ```+, -, *, /, **, %```  are applied on individual elements, so, arrays have to conformable.
+
+```python    
+x = np.array(([10,20,30],
+              [40,50,60]))
+y = np.array(([1,2,3], 
+              [4,5,6]))
+
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+print(x % y)
+```
+
+### Logical Operators
+
+Similarly, logical operators ```>, < , ==``` are applied on individual elements, so arrays have to be of same size.
+
+```python    
+import numpy as np
+
+x = np.array(([10,20,30],
+              [40,50,60]))
+y = np.array(([1,2,3], 
+              [4,5,6]))
+
+print(x > y)
+print(x < y)
+print(x == y)
+```
+
+### Math/Stat Methods
+
+![](https://i.imgur.com/UJ1GFhP.png)
+
+### sum()
+
+```sum()``` returns the sum of all elements in an array or along an axis.
+
+> __Parameters__: ```numpy.sum(a, axis=None, dtype=None, out=None, keepdims=<class numpy._globals._NoValue>)```
+
+```python 
+b = np.arange(24).reshape(6,4)
+
+print(b.sum()) # prints 276
+print(f'sum of cols {b.sum(axis = 0)}'') # prints sum of cols [60 66 72 78]
+print(f'sum of rows{b.sum(axis = 1)}') # prints sum of rows [6 22 38 54 70 86]
+```
+
+### mean()
+
+```mean()``` returns the mean of elements in an array or along an axis.
+
+> __Parameters__: ```numpy.mean(a, axis=None, dtype=None, out=None)```
+
+```python
+b = np.arange(24).reshape(6,4)
+
+print('Mean ', b.mean()) # prints Mean 11.5
+print('Mean of columns ', b.mean(axis=0)) # prints Mean of columns [10. 11. 12. 13.] 
+print('Mean of rows ', b.mean(axis=1))  # prints Mean of rows [1.5 5.5 9.5 13.5 17.5 21.5]
+```
+
+### median()
+
+```median()``` returns the median of an arry elements along an axis.
+
+> __Parameters__: ```numpy.median(a, axis=None, out=None, overwrite_input=False, keepdims=False)```
+
+```python    
+a = np.array([[10, 7, 4], 
+              [3, 2, 1]])
+
+median = np.median(a)
+
+print(median) # prints 3.5
+```
+
+### min(), max()
+
+```min()``` and  ```max()``` returns the min/max of an array, or along an axis.
+
+> __Parameters__:&nbsp;```ndarray.min(axis=None, out=None, keepdims=False)```
+\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` ndarray.max(axis=None, out=None, keepdims=False)```
+
+```python
+import numpy as np
+
+b = np.arange(24).reshape(8,3)
+
+print(b.min()) # prints 0
+print(b.min(axis = 0)) # prints [0 1 2]
+print(b.min(axis = 1)) # prints [0 3 6 9 12 15 18 21]
+
+print(b.max()) # prints 23
+print(b.max(axis = 0)) # prints [21 22 23]
+print(b.max(axis = 1)) # prints [2 5 8 11 14 17 20 23]
+```
+
+### argmin(), argmax()
+
+```argmin()``` and ```argmax()``` return arrays containing the indices of the smallest/largest elements.
+
+> __Parameters__:&nbsp;```numpy.argmin(a, axis=None, out=None)```
+\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``` numpy.argmax(a,axis=None, out=None)```
+
+```python    
+b = np.arange(24).reshape(8,3)
+
+print(b.argmin()) # prints 0
+print(b.argmin(axis = 0)) # prints [0 0 0]
+print(b.argmin(axis = 1)) # prints [0 0 0 0 0 0 0 0]
+
+print(b.argmax()) # prints 23
+print(b.argmax(axis = 0)) # prints [7 7 7]
+print(b.argmax(axis = 1)) # prints [2 2 2 2 2 2 2 2]
+```
+
+### cumsum()
+
+```cumsum()``` returns the cumulative sum of array elements along an axis.
+
+> __Parameters__: ```numpy.cumsum(a, axis=None, dtype=None, out=None)```
+
+```python
+a = np.array([[1,2,3],
+              [4,5,6]])
+
+b = np.cumsum(a)
+print(b) # prints [1 3 6 10 15 21]
+```
+
+### cumprod()
+
+```cumprod()``` returns the cumulative product of array elements along an axis.
+
+> __Parameters__: ```numpy.cumprod(a, axis=None, dtype=None, out=None)```
+
+```python    
+a = np.array([[1,2,3], 
+              [4,5,6]])
+
+b = np.cumprod(a)
+print(b)  # prints [1 2 6 24 120 720]
+```
+
+### std()
+
+```std()``` returns the standard deviation along an axis.
+
+> __Parameters__: ```numpy.std(a, axis=None, dtype=None, out=None)``` 
+
+```python    
+import numpy as np
+
+a = np.array([[1,2,3], 
+              [4,5,6]])
+
+print(np.std(a)) # prints 1.707825127659933
+```
+
+### var()
+
+```var()``` returns the variance along an axis
+
+> __Parameters__: ```numpy.var(a, axis=None, dtype=None, out=None, ddof=0)``` 
+
+```python    
+import numpy as np
+
+a = np.array([[1,2,3], [4,5,6]])
+
+print(np.var(a)) # prints 2.9166666666666665
+print(np.var(a, axis = 0, dtype = np.float32)) # prints [2.25 2.25 2.25]
+print(np.var(a, axis = 1, dtype = np.float64)) # prints [0.66666667 0.66666667]
+```
