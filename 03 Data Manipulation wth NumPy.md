@@ -859,3 +859,89 @@ print(np.var(a)) # prints 2.9166666666666665
 print(np.var(a, axis = 0, dtype = np.float32)) # prints [2.25 2.25 2.25]
 print(np.var(a, axis = 1, dtype = np.float64)) # prints [0.66666667 0.66666667]
 ```
+	
+## File I/O w/ Arrays
+
+NumPy is able to save and load data in both text and binary format with these functions:
+
+![](https://i.imgur.com/opdKpPO.png)
+
+### genfromtxt()
+
+```genfromtxt()``` loads data from text files. \
+Each line past the first skip_header line is split at the delimiter character 
+
+Usage:
+
+```python    
+import numpy as np
+
+d = np.genfromtxt("data/situps.csv",delimiter=',',skip_header=1,
+               dtype=[('StudentID','U8'),('NumberOfSitups','i8')],
+               missing_values=['na','-'],filling_values=0)
+               
+print(d)
+print(d.shape)
+```
+
+Reference: [numpy.genfromtxt](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
+
+### savetxt()
+
+```savetext()``` saves a single array to a text file.
+
+Usage:
+
+```python    
+import numpy as np
+
+np.savetxt('data/output.csv', d, 
+		fmt='%s', delimiter=',')
+```
+
+Reference: [numpy.savetxt()](https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html)
+
+### load()
+
+```load()``` is used to read one or more array files.
+
+Usage:
+
+```python   
+import numpy as np
+
+# Reading single array file
+arr = np.load('myarray.npy')
+print(arr)
+
+# Reading multiplr array files
+arch = np.load('array_archive.npz')
+print(arch['a'])
+print(arch['b'])
+```
+
+Reference: [numpy.load](https://numpy.org/doc/stable/reference/generated/numpy.load.html)
+
+### save(), savez()
+
+```save()``` saves an array to a binary file in NumPy .npy format.
+```savez()``` saves several arrays into a single file in uncompressed .npz format.
+
+Usage:
+
+```python    
+import numpy as np
+
+# Saving a single array
+arr = np.arange(10)
+
+np.save('myarray', arr)
+
+# Saving multiple arrays
+a = np.arange(10)
+b = np.arange(20).reshape(2,2)
+
+np.savez('array_archive.npz', a=arr, b=arr)
+```
+
+References: [numpy.save](https://numpy.org/doc/stable/reference/generated/numpy.save.html), [numpy.savez](https://numpy.org/doc/stable/reference/generated/numpy.savez.html)
