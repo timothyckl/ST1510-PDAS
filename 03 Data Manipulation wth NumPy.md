@@ -411,3 +411,271 @@ print(colors) # ptints [['Blue' 'Red' 'Yellow']
 ```
 
 See [A quick guide to np.sort()](https://www.sharpsightlabs.com/blog/numpy-sort/)
+
+## Dimension Manipulation
+
+### flatten()
+
+```flatten()``` converts a multi-dimensional array to a 1-D array.
+
+```python
+import numpy as np
+
+b = np.arange(24).reshape(2,3,4) # b= [[[0, 1, 2, 3], [4, 5, 6, 7], [8..],[20, 21, 22, 23]]]
+c = b.flatten()
+
+print(b) 
+print(c) # [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23]
+
+c[0] = 100;  # change the first value in the copy
+
+print(b) # no change 
+print(c) # [ 100  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23]
+```
+
+### reshape()
+
+```reshape()``` creates a new array with new dimensions. \
+This does not change the array data or the original array itself.
+
+```python
+import numpy
+
+my_array = numpy.arange(6)
+
+print(my_array) # prints  [0 1 2 3 4 5]
+print(numpy.reshape(my_array,(3, 2))) # prints [[0 1]
+                                      #         [2 3]
+                                      #         [4 5]]
+                                      
+print(numpy.reshape(my_array,(2, 3))) # prints [[0 1 2]
+                                      #         [3 4 5]]
+```
+
+### shape()
+
+```shape()``` can retrieve array dimensions or change array dimensions.
+
+```python
+import numpy as np
+
+a= np.array([1, 2, 3, 4, 5])
+print(a.shape)     # (5,) -> 5 rows and 0 columns
+
+b = np.array([[1, 2],[3, 4],[6,5]])
+print(b.shape) # (3, 2) -> 3 rows and 2 columns 
+
+# Change the shape of the array
+c = np.array([1,2,3,4,5,6])
+c.shape = (3, 2)
+print(c) # prints [[1 2]
+         #         [3 4]
+         #         [5 6]]
+```
+
+### transpose()
+
+```transpose()``` is both a library level function and an instance method. \
+This means it can be called as ```numpy.transpose(ndarray)``` or ```numpy.ndarray.transpose()```. \
+ndarray has an attribute named ‘T’, which returns the transpose of the array.
+
+```python
+import numpy as np
+
+x = np.array(([10,20,30,40], [50,60,70,80], [90, 85, 75, 45]))
+
+print(x) # prints [[10 20 30 40]
+         #         [50 60 70 80]
+         #         [90 85 75 45]]
+
+# All return the transpose of x [[10 50 90]
+print(x.transpose())       #     [20 60 85]
+print(np.transpose(x))     #     [30 70 75]
+print(x.T)                 #     [40 80 45]]
+```
+
+### resize()
+
+```resize()``` is similar to ```reshape()``` but does not enforce dimension restrictions. \
+Values in an array will repeat if there are not enough values.
+
+```python    
+import numpy as np
+
+a = np.array([[0,1],[2,3]]) # 2x2 array
+
+print(a)
+print(np.resize(a, (4, 1)))
+print(np.resize(a, (2, 3))) # values will repeat
+
+print(np.reshape(a, (2, 3))) # error
+```
+
+## Combining
+
+### concatenate()
+
+```concatenate()``` concatenates two or more arrays along an axis.
+
+Concatenating 1-D Arrays:
+
+```python
+import numpy as np
+
+x = np.arange(5)
+y = np.arange(6,10)
+z = np.arange(11,15) 
+
+print(x) # prints [0 1 2 3 4]
+print(y) # prints [6 7 8 9]
+print(z) # prints [11 12 13 14]
+print(np.concatenate((x,y,z))) # prints [0 1 2 3 4 6 7 8 9 11 12 13 14]
+```
+
+Concatenating 2-D Arrays:
+
+By default ```concatenate()``` concatencates along axis 0. \
+Dimensions for the concatenated axis __MUST__ match.
+
+Concatenation along axis 0: 
+```python    
+import numpy as np
+
+# Reshaped to 2-D
+x = np.arange(1,5).reshape (2,2)
+y = np.arange(6,12).reshape(3,2)
+
+print(x)
+print(y)
+print(np.concatenate((x,y))) # prints [[1 2]
+                               #       [3 4]
+                               #       [6 7]
+                               #       [8 9]
+                               #       [10 11]
+```
+
+Concatenation along axis 1: 
+```python    
+import numpy as np
+
+# Reshaped to 2-D
+x = np.arange(1,5).reshape (2,2)
+y = np.arange(6,12).reshape(2,3)
+
+print(x)
+print(y)
+print(np.concatenate((x,y), axis = 1)) # prints [[1 2 6 7 8]
+                                       #         [3 4 9 10 11]]
+```
+
+### append() 
+
+Values appened must be of the correct shape (the same shape as arr, excluding axis) \
+If axis is not specified, values can be any shape and will be flattened before use.
+
+```python    
+import numpy as np
+
+x = np.array([(1,2,3), 
+	          (4,5,6)])
+
+x1 = np.append(x, np.array([(7,8,9)]), axis = 0)
+x2 = np.append(x, np.array([(7,8), 
+                            (9,10)]), axis = 1)
+
+print(x1) # prints [[1 2 3]
+          #         [4 5 6]
+          #         [7 8 9]]
+          
+print(x2) # prints [[1 2 3 7 8]
+          #         [4 5 6 9 10]]
+```
+
+## Splitting Arrays
+
+### split()
+
+```split()``` splits an array into multiple sub-arrays.
+
+```python
+import numpy as np
+
+x = np.arange(12.0)
+y = np.split(x, 3)
+
+print(x) # prints [0. 1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11.]
+print(y) # prints [0. 1. 2. 3.], [4. 5. 6. 7.], [8. 9. 10. 11.]
+```
+
+### vsplit()
+
+```vsplit()``` splits an array into multiple sub-arrays vertically.  \
+Same as ```split()``` with axis = 0, the array is always split along the first axis regardless of the array dimension.
+
+```python    
+import numpy as np
+
+x = np.arange(12.0).reshape(4, 3)
+y = np.vsplit(x, 2)
+
+print(x) # prints [[0.  1.  2.]
+         #         [3.  4.  5.]
+         #         [6.  7.  8.]
+         #         [9. 10. 11.]]
+         
+print(y[0]) # prints [[0. 1. 2.]
+            #         [3. 4. 5.]]
+            
+print(y[1]) # prints [[6.  7.  8.]
+            #         [9. 10. 11.]]
+```
+
+### hsplit()
+
+```hsplit()``` splits an array intp multiple sub arrays horizontally.  \
+Same as ```split()``` with axis = 1, the array is always split along the first axis regardless of the array dimension.
+
+```python    
+import numpy as np
+
+x = np.arange(12.0).reshape(3, 4)
+y = np.hsplit(x, 2)
+
+print(x) # prints [[0. 1. 2. 3.]
+         #         [4. 5. 6. 7.]
+         #         [8. 9. 10. 11.]]
+         
+print(y[0]) # prints [[0. 1.]
+            #         [4. 5.]
+            #         [8. 9.]]
+            
+print(y[1]) # prints [[2. 3.]
+            #         [6. 7.]
+            #         [10. 11.]]
+```
+
+## Converting Arrays
+
+### tolist()
+
+```tolist()``` returns a copy of array as a nested list. \
+Data items are converted to the nearest compatible Python type.
+
+```python    
+a = np.array([1, 2])
+b = np.array([[1, 2], [3, 4]])
+
+print(a.tolist()) # prints [1, 2]
+print(b.tolist()) # prints [[1, 2], [3, 4]]
+```
+
+### astype()
+
+```astype()``` returns a copy of an array cast to a specified dtype.
+
+```python    
+a = np.array([1, 2])
+
+print(a.astype(int)) # prints [1 2]
+print(a.astype(float)) # prints [1. 2.]
+```
