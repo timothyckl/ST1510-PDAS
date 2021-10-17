@@ -2,12 +2,12 @@
 
 ## Table of Contents
 
-3. [Importing Modules](##Importing-Modules)
+1. Importing Modules
     - Built-in Modules
-4. [Data Types](##Data-Types)
-5. [Operators](##Operators)
-6. [If-else](##If-else)
-7. [Loops](##Loops)
+2. Data Types
+3. Operators
+4. If-else)
+5. Loops
     - for loop
     - while loop
 
