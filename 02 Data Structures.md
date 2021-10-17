@@ -1,4 +1,4 @@
-# 02 Data Structures
+02 Data Structures
 
 ## Table of Contents
 
