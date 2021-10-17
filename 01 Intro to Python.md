@@ -1,4 +1,4 @@
-# 01 Introduction to Python
+01 Introduction to Python
 
 ## Table of Contents
 
