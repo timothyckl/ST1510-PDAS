@@ -293,7 +293,7 @@ Output:
 
 `figure()` has parameters to change figsize such as `plt.figure(figsize=(width, height))`
 
-```
+```python
 import matplotlib.pyplot as plt
 
 plt.figure(1, figsize=(5, 5))  # first figure, 5 inches width and height
@@ -739,6 +739,7 @@ Output:
 
 ![](https://i.imgur.com/i9LQesb.png)
 
+Reference: [matplotlib.pyplot.scatter](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
 
 ## Box Plots
 
@@ -874,3 +875,5 @@ plt.show()
 Output:
 
 ![](https://i.imgur.com/GCiROEO.png)
+
+Reference: [matplotlib.pyplot.boxplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.boxplot.html)
