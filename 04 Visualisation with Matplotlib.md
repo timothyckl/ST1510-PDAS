@@ -877,3 +877,8 @@ Output:
 ![](https://i.imgur.com/GCiROEO.png)
 
 Reference: [matplotlib.pyplot.boxplot](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.boxplot.html)
+
+## Display Images
+
+## Interactive Charts
+
