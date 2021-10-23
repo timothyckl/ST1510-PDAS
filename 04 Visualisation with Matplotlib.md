@@ -880,5 +880,56 @@ Reference: [matplotlib.pyplot.boxplot](https://matplotlib.org/3.1.1/api/_as_gen/
 
 ## Display Images
 
+The most common way to plot images in Matplotlib is with `imshow()` method.
+
+```python
+import matplotlib.pyplot as plt
+
+image = plt.imread("data/face.png")
+
+fig, ax = plt.subplots()
+ax.imshow(image)
+ax.axis('off')
+plt.show()
+```
+
+Output:
+
+![image](https://user-images.githubusercontent.com/89766111/138543700-55230de8-b22f-418a-bc9a-f36cceac272b.png)
+
+Reference: [matplotlib.pyplot.imshow](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html)
+
 ## Interactive Charts
 
+We can create an interactive chart that displays the text annotation "You clicked here" at whichever x,y position that was clicked by the user!
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots()
+ax.plot(np.random.rand(10))
+
+txt = None
+
+# definining callback functions
+def onclick(event):
+    global txt
+    txt = plt.text(event.xdata, event.ydata, "You clicked here")
+    fig.canvas.draw()
+
+def offclick(event):
+    txt.remove()
+    fig.canvas.draw()
+
+fig.canvas.mpl_connect('button_press_event', onclick)
+fig.canvas.mpl_connect('button_release_event', offclick) 
+
+plt.show()
+```
+
+Output:
+
+![image](https://user-images.githubusercontent.com/89766111/138544448-55061298-23da-4a59-8a6e-92d892c13b1a.png)
+
+Reference: [Event handling and picking](https://matplotlib.org/stable/users/event_handling.html)
